@@ -8,27 +8,47 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.view.inputmethod.*;
+import android.content.*;
+import java.util.*;
 
 
 public class TimeActivity extends Activity {
     Button button;
     EditText editText;
+    TextView text;
+    ArrayList<String> tasks;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
         button = (Button)findViewById(R.id.button);
         editText = (EditText) findViewById(R.id.editText);
+        text = (TextView)findViewById(R.id.textView);
+        text.setText("No entries.");
+        tasks = new ArrayList<String>();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(TimeActivity.this, "OK", Toast.LENGTH_SHORT).show();
-                Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
+                //Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
+                if(editText.getText().toString() != ""){
+                    tasks.add(editText.getText().toString());
+                    getMostRecent();
+                }
+                editText.setText("");
+                InputMethodManager imm = (InputMethodManager)getSystemService(
+                        Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(editText.getWindowToken(), 0);
             }
         });
     }
-    public void sendMsg(View view) {
-        Toast.makeText(findViewById(R.id.editText).getContext(),findViewById(R.id.editText).getContentDescription(),Toast.LENGTH_LONG).show();
+    public void getMostRecent() {
+        String s = "";
+        for(int i=0; i<tasks.size(); i++) {
+            s += tasks.get(i)+"\n";
+        }
+        text.setText(s);
     }
 
     @Override
