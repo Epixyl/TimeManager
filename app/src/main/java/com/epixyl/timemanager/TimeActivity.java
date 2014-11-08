@@ -20,7 +20,9 @@ public class TimeActivity extends Activity{
     Button button2;
     Button button3;
     Button button4;
+    TextView textView2, textView3, textView4, textView5, textView6, textView7;
     int repeatSetting = 0;
+    int points = 0;
     EditText editText;
     TextView text;
     ArrayList<String> tasks;
@@ -32,17 +34,29 @@ public class TimeActivity extends Activity{
         button2 = (Button)findViewById(R.id.button2);
         button3 = (Button)findViewById(R.id.button3);
         button4 = (Button)findViewById(R.id.button4);
+        textView2 = (TextView)findViewById(R.id.textView2);
+        textView3 = (TextView)findViewById(R.id.textView3);
+        textView4 = (TextView)findViewById(R.id.textView4);
+        textView5 = (TextView)findViewById(R.id.textView5);
+        textView6 = (TextView)findViewById(R.id.textView6);
+        textView7 = (TextView)findViewById(R.id.textView7);
+        textView2.setText("");
+        textView3.setText("");
+        textView4.setText("");
+        textView5.setText("");
+        textView6.setText("");
+        textView7.setText("");
         editText = (EditText) findViewById(R.id.editText);
         text = (TextView)findViewById(R.id.textView);
 
-        text.setText("No entries.");
+        text.setText("Tasks");
         tasks = new ArrayList<String>();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
                 if(editText.getText().toString() != ""){
-                    tasks.add(editText.getText().toString()+" (RepeatSetting: "+repeatSetting+")");
+                    tasks.add(editText.getText().toString()+" (RepeatSetting: "+repeatSetting+")\n");
                     getMostRecent();
                 }
                 editText.setText("");
@@ -69,18 +83,97 @@ public class TimeActivity extends Activity{
                 repeatSetting = 2;
             }
         });
+        textView2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(0)!="" && tasks.size()<0) {
+                    tasks.remove(0);
+                    getMostRecent();
+                }
+            }
+        });
+        textView3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(1)!="" && tasks.size()<1) {
+                    tasks.remove(1);
+                    getMostRecent();
+                }
+            }
+        });
+        textView4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(2)!="" && tasks.size()<2) {
+                    tasks.remove(2);
+                    getMostRecent();
+                }
+            }
+        });
+        textView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(3)!="" && tasks.size()<3) {
+                    tasks.remove(3);
+                    getMostRecent();
+                }
+            }
+        });
+        textView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(4)!="" && tasks.size()<4) {
+                    tasks.remove(4);
+                    getMostRecent();
+                }
+            }
+        });
+        textView7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(tasks.get(5)!="" && tasks.size()<5) {
+                    tasks.remove(5);
+                    getMostRecent();
+                }
+            }
+        });
 
     }
     public void getMostRecent() {
         String s = "";
-        for(int i=0; i<tasks.size(); i++) {
-            s += tasks.get(i)+"\n";
+        textView2.setText("");
+        textView3.setText("");
+        textView4.setText("");
+        textView5.setText("");
+        textView6.setText("");
+        textView7.setText("");
+        for(int i=0; i<Math.min(tasks.size(), 5); i++) {
+            if(tasks.size()>i) {
+                s = tasks.get(i);
+                switch (i) {
+                    case 0:
+                        textView2.setText(s);
+                        break;
+                    case 1:
+                        textView3.setText(s);
+                        break;
+                    case 2:
+                        textView4.setText(s);
+                        break;
+                    case 3:
+                        textView5.setText(s);
+                        break;
+                    case 4:
+                        textView6.setText(s);
+                        break;
+                    case 5:
+                        textView7.setText(s);
+                        break;
+                }
+            }
         }
-        text.setText(s);
     }
-    public void pickTime() {
 
-    }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
