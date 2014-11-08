@@ -7,23 +7,29 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.widget.EditText;
 
 
 public class TimeActivity extends Activity {
     Button button;
+    EditText editText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_time);
         button = (Button)findViewById(R.id.button);
+        editText = (EditText) findViewById(R.id.editText);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(TimeActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(TimeActivity.this, "OK", Toast.LENGTH_SHORT).show();
+                Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
             }
         });
     }
-
+    public void sendMsg(View view) {
+        Toast.makeText(findViewById(R.id.editText).getContext(),findViewById(R.id.editText).getContentDescription(),Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
