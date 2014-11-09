@@ -60,7 +60,7 @@ public class TimeActivity extends Activity{
             public void onClick(View v) {
                 //Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
                 if(!editText.getText().toString().equals("")){
-                    tasks.add(editText.getText().toString()+" (RepeatSetting: "+repeatSetting+")\n");
+                    tasks.add(editText.getText().toString()+repeatSetting);
                     getMostRecent();
                 }
                 editText.setText("");
@@ -168,22 +168,52 @@ public class TimeActivity extends Activity{
                 s = tasks.get(i);
                 switch (i) {
                     case 0:
-                        textView2.setText(s);
+                        textView2.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView2.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView2.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView2.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                     case 1:
-                        textView3.setText(s);
+                        textView3.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView3.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView3.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView3.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                     case 2:
-                        textView4.setText(s);
+                        textView4.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView4.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView4.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView4.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                     case 3:
-                        textView5.setText(s);
+                        textView5.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView5.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView5.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView5.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                     case 4:
-                        textView6.setText(s);
+                        textView6.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView6.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView6.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView6.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                     case 5:
-                        textView7.setText(s);
+                        textView7.setText(s.substring(0,s.length()-1));
+                        switch((s.substring(s.length()-1,s.length())).charAt(0)){
+                            case '0': textView7.setBackgroundColor(Color.rgb(255,200,200)); break;
+                            case '1': textView7.setBackgroundColor(Color.rgb(200,255,200)); break;
+                            case '2': textView7.setBackgroundColor(Color.rgb(200,200,255)); break;
+                        }
                         break;
                 }
             }
