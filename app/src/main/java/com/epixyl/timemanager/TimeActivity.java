@@ -55,7 +55,7 @@ public class TimeActivity extends Activity{
             @Override
             public void onClick(View v) {
                 //Toast.makeText(editText.getContext(),editText.getText(),Toast.LENGTH_LONG).show();
-                if(editText.getText().toString() != ""){
+                if(!editText.getText().toString().equals("")){
                     tasks.add(editText.getText().toString()+" (RepeatSetting: "+repeatSetting+")\n");
                     getMostRecent();
                 }
@@ -86,7 +86,7 @@ public class TimeActivity extends Activity{
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(0)!="" && tasks.size()<0) {
+                if(!tasks.get(0).equals("")) {
                     tasks.remove(0);
                     getMostRecent();
                 }
@@ -95,7 +95,7 @@ public class TimeActivity extends Activity{
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(1)!="" && tasks.size()<1) {
+                if(!tasks.get(1).equals("")) {
                     tasks.remove(1);
                     getMostRecent();
                 }
@@ -104,7 +104,7 @@ public class TimeActivity extends Activity{
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(2)!="" && tasks.size()<2) {
+                if(!tasks.get(2).equals("")) {
                     tasks.remove(2);
                     getMostRecent();
                 }
@@ -113,7 +113,7 @@ public class TimeActivity extends Activity{
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(3)!="" && tasks.size()<3) {
+                if(!tasks.get(3).equals("")) {
                     tasks.remove(3);
                     getMostRecent();
                 }
@@ -122,7 +122,7 @@ public class TimeActivity extends Activity{
         textView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(4)!="" && tasks.size()<4) {
+                if(!tasks.get(4).equals("")) {
                     tasks.remove(4);
                     getMostRecent();
                 }
@@ -131,7 +131,7 @@ public class TimeActivity extends Activity{
         textView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(5)!="" && tasks.size()<5) {
+                if(!tasks.get(5).equals("")) {
                     tasks.remove(5);
                     getMostRecent();
                 }
