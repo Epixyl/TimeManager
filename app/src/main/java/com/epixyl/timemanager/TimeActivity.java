@@ -52,7 +52,7 @@ public class TimeActivity extends Activity{
         editText = (EditText) findViewById(R.id.editText);
         text = (TextView)findViewById(R.id.textView);
 
-        text.setText("Tasks");
+        text.setText("Tasks:");
         tasks = new ArrayList<String>();
         progress= (ProgressBar)findViewById(R.id.progressBar);
         button.setOnClickListener(new View.OnClickListener() {
