@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -26,6 +27,8 @@ public class TimeActivity extends Activity{
     EditText editText;
     TextView text;
     ArrayList<String> tasks;
+    ProgressBar progress;
+    int counter=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +54,7 @@ public class TimeActivity extends Activity{
 
         text.setText("Tasks");
         tasks = new ArrayList<String>();
+        progress= (ProgressBar)findViewById(R.id.progressBar);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,6 +91,9 @@ public class TimeActivity extends Activity{
             @Override
             public void onClick(View v) {
                 if(!tasks.get(0).equals("")) {
+
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(0);
                     getMostRecent();
                 }
