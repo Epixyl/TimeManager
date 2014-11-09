@@ -90,8 +90,7 @@ public class TimeActivity extends Activity{
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(0).equals("")) {
-
+                if(tasks.get(0)!=null) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(0);
@@ -102,7 +101,9 @@ public class TimeActivity extends Activity{
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(1).equals("")) {
+                if(tasks.get(1)!=null) {
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(1);
                     getMostRecent();
                 }
@@ -111,7 +112,9 @@ public class TimeActivity extends Activity{
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(2).equals("")) {
+                if(tasks.get(2)!=null) {
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(2);
                     getMostRecent();
                 }
@@ -120,7 +123,9 @@ public class TimeActivity extends Activity{
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(3).equals("")) {
+                if(tasks.get(3)!=null) {
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(3);
                     getMostRecent();
                 }
@@ -129,7 +134,9 @@ public class TimeActivity extends Activity{
         textView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(4).equals("")) {
+                if(tasks.get(4)!=null) {
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(4);
                     getMostRecent();
                 }
@@ -138,7 +145,9 @@ public class TimeActivity extends Activity{
         textView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!tasks.get(5).equals("")) {
+                if(tasks.get(5)!=null) {
+                    counter++;
+                    progress.setProgress(counter);
                     tasks.remove(5);
                     getMostRecent();
                 }
