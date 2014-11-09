@@ -90,7 +90,7 @@ public class TimeActivity extends Activity{
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(0)!=null) {
+                if(tasks.size()>0) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(0);
@@ -101,7 +101,7 @@ public class TimeActivity extends Activity{
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(1)!=null) {
+                if(tasks.size()>1) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(1);
@@ -112,7 +112,7 @@ public class TimeActivity extends Activity{
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(2)!=null) {
+                if(tasks.size()>2) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(2);
@@ -123,7 +123,7 @@ public class TimeActivity extends Activity{
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(3)!=null) {
+                if(tasks.size()>3) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(3);
@@ -134,7 +134,7 @@ public class TimeActivity extends Activity{
         textView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(4)!=null) {
+                if(tasks.size()>4) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(4);
@@ -145,7 +145,7 @@ public class TimeActivity extends Activity{
         textView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(tasks.get(5)!=null) {
+                if(tasks.size()>5) {
                     counter++;
                     progress.setProgress(counter);
                     tasks.remove(5);
