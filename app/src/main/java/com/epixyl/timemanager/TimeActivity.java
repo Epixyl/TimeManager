@@ -1,22 +1,20 @@
 package com.epixyl.timemanager;
 
 import android.app.Activity;
-import android.graphics.drawable.ColorDrawable;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.ProgressBar;
-import android.widget.Toast;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.view.inputmethod.*;
-import android.content.*;
-import android.text.format.*;
-import java.util.*;
-import android.graphics.*;
-import android.app.AlertDialog;
+
+import java.util.ArrayList;
 
 public class TimeActivity extends Activity{
     Button button;
@@ -32,6 +30,7 @@ public class TimeActivity extends Activity{
     ProgressBar progress;
     int counter=0;
     int colour;
+    AlertDialog.Builder dlgAlert;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +52,6 @@ public class TimeActivity extends Activity{
         textView6.setText("");
         textView7.setText("");
         colour= new Color().rgb(238,238,238);
-        AlertDialog.Builder dlgAlert;
         editText = (EditText) findViewById(R.id.editText);
         text = (TextView)findViewById(R.id.textView);
 
@@ -163,20 +161,22 @@ public class TimeActivity extends Activity{
         });
 
     }
-    public void checkForFull(AlertDialog.Builder dlgAlert){
-        if(progress.getProgress()>9){
+    public void checkForFull(){
+        if(progress.getProgress()>1){
             progress.setProgress(0);
-            dlgAlert  = new AlertDialog.Builder(this);
-
+            dlgAlert= new AlertDialog.Builder(this);
             dlgAlert.setMessage("Reward yourself for your hard work!");
             dlgAlert.setTitle("Congratulations!");
             dlgAlert.setPositiveButton("OK", null);
             dlgAlert.setCancelable(true);
-            dlgAlert.create().show();
+
+            dlgAlert.create();
+            dlgAlert.show();
         }
     }
     public void getMostRecent() {
         String s = "";
+        checkForFull();
         textView2.setText("");
         textView3.setText("");
         textView4.setText("");
@@ -248,7 +248,7 @@ public class TimeActivity extends Activity{
 
                         break;
                 }
-                checkForFull(dlgAlert);
+
             }
         }
     }
