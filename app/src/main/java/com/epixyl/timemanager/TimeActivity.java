@@ -1,6 +1,7 @@
 package com.epixyl.timemanager;
 
 import android.app.Activity;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.content.*;
 import android.text.format.*;
 import java.util.*;
 import android.graphics.*;
+import android.app.AlertDialog;
 
 public class TimeActivity extends Activity{
     Button button;
@@ -29,6 +31,7 @@ public class TimeActivity extends Activity{
     ArrayList<String> tasks;
     ProgressBar progress;
     int counter=0;
+    int colour;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +52,8 @@ public class TimeActivity extends Activity{
         textView5.setText("");
         textView6.setText("");
         textView7.setText("");
+        colour= new Color().rgb(238,238,238);
+        AlertDialog.Builder dlgAlert;
         editText = (EditText) findViewById(R.id.editText);
         text = (TextView)findViewById(R.id.textView);
 
@@ -93,8 +98,10 @@ public class TimeActivity extends Activity{
                 if(tasks.size()>0) {
                     counter++;
                     progress.setProgress(counter);
+
                     tasks.remove(0);
                     getMostRecent();
+
                 }
             }
         });
@@ -150,10 +157,23 @@ public class TimeActivity extends Activity{
                     progress.setProgress(counter);
                     tasks.remove(5);
                     getMostRecent();
+
                 }
             }
         });
 
+    }
+    public void checkForFull(AlertDialog.Builder dlgAlert){
+        if(progress.getProgress()>9){
+            progress.setProgress(0);
+            dlgAlert  = new AlertDialog.Builder(this);
+
+            dlgAlert.setMessage("Reward yourself for your hard work!");
+            dlgAlert.setTitle("Congratulations!");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
     }
     public void getMostRecent() {
         String s = "";
@@ -163,6 +183,12 @@ public class TimeActivity extends Activity{
         textView5.setText("");
         textView6.setText("");
         textView7.setText("");
+        textView2.setBackgroundColor(colour);
+        textView3.setBackgroundColor(colour);
+        textView4.setBackgroundColor(colour);
+        textView5.setBackgroundColor(colour);
+        textView6.setBackgroundColor(colour);
+        textView7.setBackgroundColor(colour);
         for(int i=0; i<Math.min(tasks.size(), 5); i++) {
             if(tasks.size()>i) {
                 s = tasks.get(i);
@@ -170,52 +196,59 @@ public class TimeActivity extends Activity{
                     case 0:
                         textView2.setText(s.substring(0,s.length()-1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView2.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView2.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView2.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView2.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView2.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView2.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                     case 1:
-                        textView3.setText(s.substring(0,s.length()-1));
+                        textView3.setText(s.substring(0, s.length() - 1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView3.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView3.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView3.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView3.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView3.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView3.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                     case 2:
                         textView4.setText(s.substring(0,s.length()-1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView4.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView4.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView4.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView4.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView4.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView4.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                     case 3:
                         textView5.setText(s.substring(0,s.length()-1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView5.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView5.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView5.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView5.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView5.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView5.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                     case 4:
                         textView6.setText(s.substring(0,s.length()-1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView6.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView6.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView6.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView6.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView6.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView6.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                     case 5:
                         textView7.setText(s.substring(0,s.length()-1));
                         switch((s.substring(s.length()-1,s.length())).charAt(0)){
-                            case '0': textView7.setBackgroundColor(Color.rgb(255,200,200)); break;
-                            case '1': textView7.setBackgroundColor(Color.rgb(200,255,200)); break;
-                            case '2': textView7.setBackgroundColor(Color.rgb(200,200,255)); break;
+                            case '0': textView7.setBackgroundColor(Color.rgb(213,219,122)); break;
+                            case '1': textView7.setBackgroundColor(Color.rgb(247,195,56)); break;
+                            case '2': textView7.setBackgroundColor(Color.rgb(290,204,108)); break;
                         }
+
                         break;
                 }
+                checkForFull(dlgAlert);
             }
         }
     }
